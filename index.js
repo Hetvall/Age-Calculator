@@ -20,9 +20,10 @@ const monthOutput = document.querySelector(".MM");
 const yearOutput = document.querySelector(".YY");
 
 // Actual Dates
-const years = new Date().getFullYear();
-const monthDays = new Date().getMonth();
-const day = new Date().getDate();
+const currentDate = new Date();
+const currentDay = currentDate.getDate();
+const currentMonth = currentDate.getMonth() + 1;
+const currentYear = currentDate.getFullYear();
 
 // User input
 
@@ -31,7 +32,7 @@ submit.addEventListener("click", () => {
   const monthValue = parseInt(monthInput.value);
   const yearValue = parseInt(yearInput.value);
 
-  if (dayValue >= 32) {
+  if (dayValue > 31) {
     dayInput.style.borderColor = "red";
     dayMessage.innerText = "Must be a valid day";
     labelDay.style.color = "red";
@@ -43,10 +44,10 @@ submit.addEventListener("click", () => {
     dayInput.style.borderColor = "";
     dayMessage.innerText = "";
     labelDay.style.color = "";
-    dayOutput.innerHTML = Math.abs(dayValue - day);
+    dayOutput.innerHTML = Math.abs(dayValue - currentDay);
   }
 
-  if (monthValue <= 0 || isNaN(dayValue)) {
+  if (monthValue <= 0 || isNaN(monthValue)) {
     monthInput.style.borderColor = "red";
     monthMessage.innerText = "This field is required";
     labelMonth.style.color = "red";
@@ -58,14 +59,14 @@ submit.addEventListener("click", () => {
     monthInput.style.borderColor = "";
     monthMessage.innerText = "";
     labelMonth.style.color = "";
-    monthOutput.innerHTML = Math.abs(monthValue - monthDays);
+    monthOutput.innerHTML = Math.abs(monthValue - currentMonth);
   }
 
-  if (yearValue >= 2024) {
+  if (yearValue > currentYear) {
     yearInput.style.borderColor = "red";
     yearMessage.innerText = "Must be in the past";
     labelYear.style.color = "red";
-  } else if (yearValue <= 0 || isNaN(dayValue)) {
+  } else if (yearValue <= 0 || isNaN(yearValue)) {
     yearInput.style.borderColor = "red";
     yearMessage.innerText = "This field is required";
     labelYear.style.color = "red";
@@ -73,7 +74,6 @@ submit.addEventListener("click", () => {
     yearInput.style.borderColor = "";
     yearMessage.innerText = "";
     labelYear.style.color = "";
-    yearOutput.innerHTML = Math.abs(yearValue - years);
+    yearOutput.innerHTML = Math.abs(yearValue - currentYear);
   }
 });
-

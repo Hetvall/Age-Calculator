@@ -66,7 +66,6 @@ input::placeholder {
     text-align: left;
     margin-top: 20px;
     margin-left: 5px;
-    border-color: hsl(259, 100%, 65%);
 }
 
 input::-webkit-inner-spin-button,
@@ -75,12 +74,9 @@ input::-webkit-outer-spin-button {
     appearance: none;
 }
 
-input:hover {
+input:focus {
     border-color: hsl(259, 100%, 65%);
-}
-
-input:active {
-    border-color: hsl(259, 100%, 65%);
+    outline: none;
 }
 
 .hr.bar {
@@ -190,7 +186,7 @@ small {
 
     .output h1 {
         font-size: 51px;
-        font-weight:900;
+        font-weight: 900;
         height: 60px;
         margin-left: -20px;
         margin-top: 10px;
