@@ -10,13 +10,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: hsl(0, 0%, 86%);
+    background-color: hsl(0, 0%, 94%);
     font-family: 'Poppins', sans-serif;
 }
 
 .card {
     background-color: hsl(0, 0%, 100%);
-    width: 740px;
+    width: 750px;
     border-radius: 18px 18px 190px 18px;
     height: 35rem;
 }
@@ -29,7 +29,7 @@ body {
 
 .form-container {
     display: flex;
-    gap: 15px;
+    gap: 30px;
 }
 
 .block {
@@ -42,26 +42,26 @@ body {
     color: hsl(0, 1%, 44%);
     margin: 7px;
     letter-spacing: 3px;
+    margin-left: 1px;
 }
 
 input {
-    width: 130px;
+    width: 120px;
     border-radius: 10px;
     border: 1px solid hsl(0, 0%, 86%);
     display: flex;
-    font-size: 40px;
-    padding: 8px;
+    font-size: 35px;
+    padding: 13px;
     margin: 1px;
     cursor: pointer;
-    height: 48px;
+    height: 40px;
     font-weight: 700;
-    text-indent: 10px;
 }
 
 input::placeholder {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 30px;
-    padding: 20px;
+    padding: 10px;
     color: hsl(0, 1%, 44%);
     text-align: left;
     margin-top: 20px;
@@ -79,13 +79,16 @@ input:focus {
     outline: none;
 }
 
-.hr.bar {
-    border-color: hsl(0, 0%, 86%);
+.bar {
+    border-color: hsl(0, 0%, 100%);
+    opacity: 0.5;
+    width: 100%;
 }
 
 .submit-content {
     display: flex;
     align-items: center;
+    margin-top: -20px;
 }
 
 .submit-content hr {
@@ -115,6 +118,7 @@ input:focus {
 
 span {
     color: hsl(259, 100%, 65%);
+    font-weight: 900;
     margin-left: 20px;
 }
 
@@ -122,12 +126,14 @@ small {
     color: hsl(0, 100%, 67%);
     font-weight: normal;
     font-style: italic;
+    height: 20px;
     margin-top: 10px;
 }
 
 @media (max-width: 375px) {
     .card {
         width: 350px;
+        height: 540px;
         border-radius: 18px 18px 100px 18px;
     }
 
@@ -137,59 +143,67 @@ small {
         height: 200px;
     }
 
+    .form-container {
+        display: flex;
+        gap: 18px;
+    }
+
     .block {
         display: flex;
         flex-direction: column;
-        column-gap: 10px;
         margin: 1px;
         margin-bottom: 20px;
+        gap: 2px;
     }
 
     .block label {
-        margin: 6px;
+        margin: 1px;
         letter-spacing: 2px;
         font-size: 13px;
+        margin-left: -5px;
     }
 
     input {
-        width: 80px;
+        width: 75px;
         font-size: 23px;
         font-weight: 800;
         padding: 5px;
         margin-left: -5px;
+        height: 55px;
+        padding-left: 10px;
     }
 
     input::placeholder {
         font-weight: 700;
         font-size: 20px;
         padding: 1px;
-    }
-
-    .submit-content hr {
-        width: 100%;
-        border-color: hsl(0, 0%, 100%);
+        padding-left: 6px;
     }
 
     .submit-button {
         border-radius: 50px;
+        color: hsl(259, 100%, 65%);
         padding: 7px;
         margin-left: -180px;
     }
 
-    .arrow-icon {
-        font-size: small;
-    }
-
     .submit-content {
         margin-bottom: 25px;
+        align-items: center;
+        margin-top: 5px;
+        margin: 10px 0;
     }
 
     .output h1 {
         font-size: 51px;
         font-weight: 900;
-        height: 60px;
+        height: 50px;
         margin-left: -20px;
-        margin-top: 10px;
+        margin-top: 5px;
         margin-bottom: 15px;
+    }
+
+    .bar {
+        opacity: 1;
     }
 }
