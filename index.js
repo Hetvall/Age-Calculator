@@ -99,13 +99,23 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!dayInput.value) {
           dayMessage.innerText = "This field is required";
           dayInput.style.borderColor = "red";
+          dayInput.style.borderColor = "red";
+          monthInput.style.borderColor = "red";
+          yearInput.style.borderColor = "red";
         }
         if (!monthInput.value) {
           monthMessage.innerText = "This field is required";
           monthInput.style.borderColor = "red";
+          dayInput.style.borderColor = "red";
+          monthInput.style.borderColor = "red";
+          yearInput.style.borderColor = "red";
         }
+
         if (!yearInput.value) {
           yearMessage.innerText = "This field is required";
+          yearInput.style.borderColor = "red";
+          dayInput.style.borderColor = "red";
+          monthInput.style.borderColor = "red";
           yearInput.style.borderColor = "red";
         }
         return;
@@ -116,45 +126,73 @@ document.addEventListener("DOMContentLoaded", () => {
         dayMessage.innerText = "Must be a valid day";
         dayInput.style.borderColor = "red";
         labelDay.style.color = "red";
+        dayInput.style.borderColor = "red";
+        monthInput.style.borderColor = "red";
+        yearInput.style.borderColor = "red";
         hasError = true;
       }
       if (monthValue <= 0) {
         monthMessage.innerText = "Must be a valid month";
         monthInput.style.borderColor = "red";
         labelMonth.style.color = "red";
+        dayInput.style.borderColor = "red";
+        monthInput.style.borderColor = "red";
+        yearInput.style.borderColor = "red";
         hasError = true;
       }
       if (yearValue <= 0) {
         yearMessage.innerText = "Must be a valid year";
         yearInput.style.borderColor = "red";
         labelYear.style.color = "red";
-        hasError = true;
-      } else if (
-        yearValue > currentYear ||
-        new Date(yearValue, monthValue - 1, dayValue).getDate() !== dayValue
-      ) {
-        yearMessage.innerText = "Must be in the past";
+        dayInput.style.borderColor = "red";
+        monthInput.style.borderColor = "red";
         yearInput.style.borderColor = "red";
-        labelYear.style.color = "red";
         hasError = true;
+        return;
       }
 
       // check if input is a valid digit
       if (
         dayValue < 1 ||
         dayValue > 31 ||
-        new Date(yearValue, monthValue - 1, dayValue).getDate() !== dayValue
+        new Date(yearValue, monthValue - 1, dayValue) > new Date()
       ) {
         dayMessage.innerText = "Must be a valid day";
         dayInput.style.borderColor = "red";
         labelDay.style.color = "red";
+        dayInput.style.borderColor = "red";
+        monthInput.style.borderColor = "red";
+        yearInput.style.borderColor = "red";
         hasError = true;
+        return;
       }
       if (monthValue < 1 || monthValue > 12) {
         monthMessage.innerText = "Must be a valid month";
         monthInput.style.borderColor = "red";
         labelMonth.style.color = "red";
+        dayInput.style.borderColor = "red";
+        monthInput.style.borderColor = "red";
+        yearInput.style.borderColor = "red";
         hasError = true;
+        return;
+      }
+
+      if (
+        yearValue > currentYear ||
+        new Date(yearValue, monthValue - 1, dayValue).getDate() !== dayValue
+      ) {
+        yearMessage.innerText = "Must be in the past";
+        yearInput.style.borderColor = "red";
+        labelYear.style.color = "red";
+        dayInput.style.borderColor = "red";
+        monthInput.style.borderColor = "red";
+        yearInput.style.borderColor = "red";
+        hasError = true;
+        return;
+      } else {
+        yearMessage.innerText = "";
+        yearInput.style.borderColor = "";
+        labelYear.style.color = "";
       }
 
       if (currentDay < dayValue) {
