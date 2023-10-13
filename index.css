@@ -108,13 +108,19 @@ input:focus {
     background-color: hsl(0, 0%, 8%);
 }
 
-.output h1 {
+.output li {
     font-size: 80px;
     font-weight: 900;
     font-family: 'Poppins';
     font-style: italic;
     height: 85px;
 }
+
+li {
+    list-style-type: none;
+
+}
+
 
 span {
     color: hsl(259, 100%, 65%);
@@ -193,7 +199,7 @@ small {
         margin: 10px 0;
     }
 
-    .output h1 {
+    .output li {
         font-size: 51px;
         font-weight: 900;
         height: 50px;
